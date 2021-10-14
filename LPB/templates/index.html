@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>{{ info_sede.nome_empresa }}</title>
+</head>
+
+<body>
+    <header>
+        <div class="collapse" id="navbarHeader" style="background-color: azure;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="font-weight-bolder" style="color: lightskyblue;">Sobre</h4>
+                        <p class="text-body text-dark">{{ info_sede.texto_sobre }}</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 style="color: lightskyblue;">Contatos</h4>
+                        <ul class="list-unstyled">
+                            <li><a target="_blank" href="{{ info_sede.instagram }}" class="text-dark">Instagram</a></li>
+                            <li><a target="_blank" href="{{ info_sede.localizacao }}" class="text-dark">Localização</a></li>
+                            <li><a target="_blank" href="{{ info_sede.whatsapp }}" class="text-dark">Whatsapp</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-light" style="background-color: lightskyblue;">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <!--https://fontawesome.com/v4.7/icons/-->
+                    <i class="fa fa-gg" aria-hidden="true"></i>
+                    <strong>{{ info_sede.nome_empresa }}</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="jumbotron text-center" style="background-color: rgb(187, 225, 236)">
+            <div class="container">
+                <h1 class="jumbotron-heading"><i class="fa fa-hand-spock-o" aria-hidden="true"></i> Seja bem-vindo(a)!</h1>
+                <p class="lead text-muted">{{ info_sede.chamada }}</p>
+            </div>
+        </section>
+
+        {% for i in dados_site %}
+        
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <section class="jumbotron text-left" style="background-color: #d1f1f1">
+                    <div class="container">
+                        <h5 class="jumbotron-heading text-info"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> {{i.nome_empresa}}</h5>
+                        <p class="text-dark">{{ i.texto_sobre }}</p>
+                    </div>
+                </section>
+
+                <div class="row">
+                    {% for j in lista_produtos %}
+                        {% if j.empresa.id == i.id%}
+                        {% if j.nome_produto != "NADA" %}
+                        <div class="col-md-4">
+                            <div class="card border-primary mb-4 box-shadow">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ j.nome_produto }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ i.nome_empresa }}</h6>
+                                    <p class="card-text">{{ j.descricao }}</p>
+                                    <h3>R${{ j.preco_venda }}</h3>
+                                    <a href="#" class="btn btn-primary">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+    <footer class="text-muted mt-5 mb-5">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Voltar para o topo</a>
+            </p>
+            <p>&copy; {{ info_sede.nome_empresa }}, 2021!</p>
+            <p>Quer saber mais? <a target="_blank" href="{{ info_sede.whatsapp }}">Chama no whats</a> ou venha nos visitar em <a target="_blank" href="{{ info_sede.localizacao }}""> nosso ponto físico</a>.</p>
+        </div>
+    </footer>
+<!--
+    <ol>
+        {% for i in dados_site %}
+        <h1>{{ i.nome_empresa }}</h1>
+        <p>{{ i.texto_sobre }}</p>
+
+        <a target="_blank" href="{{ i.whatsapp }}">Clique aqui para falar comigo<br></a>
+        <a target="_blank" href="{{ i.localizacao }}">Clique aqui para me encontrar</a>
+        
+        <h3>Produtos exclusivos!</h3>
+
+        <ol>
+            {% for j in lista_produtos %}
+            {% if j.empresa.id == i.id%}
+            {% if j.nome_produto != "NADA" %}
+            <li>{{ j.nome_produto }}</li>
+            <p>{{ j.descricao }}</p>
+            <p>R${{ j.preco_venda }}</p>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </ol>
+        
+        <h3>Conheça nossos clientes!</h3>
+
+        <ol>
+            {% for r in lista_pessoas %}
+            {% if r.empresa.id == i.id%}
+            {% if r.listagem %}
+            <li>{{ r.nome_pessoa }}</li>
+            <p>{{ r.email }}</p>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </ol>
+
+        {% endfor %}
+    </ol>
+-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</body>
+
+</html>
