@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head><!--
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>{{ info_sede.nome_empresa }}</title>
+    <title>{{ info_sede.nome_empresa }}</title>-->
 </head>
 
 <body>
-    <header>
+<!--    <header>
         <div class="collapse" id="navbarHeader" style="background-color: azure;">
             <div class="container">
                 <div class="row">
@@ -35,7 +35,7 @@
         <div class="navbar navbar-light" style="background-color: lightskyblue;">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    <!--https://fontawesome.com/v4.7/icons/-->
+                    
                     <i class="fa fa-gg" aria-hidden="true"></i>
                     <strong>{{ info_sede.nome_empresa }}</strong>
                 </a>
@@ -99,44 +99,8 @@
             <p>Quer saber mais? <a target="_blank" href="{{ info_sede.whatsapp }}">Chama no whats</a> ou venha nos visitar em <a target="_blank" href="{{ info_sede.localizacao }}""> nosso ponto físico</a>.</p>
         </div>
     </footer>
-<!--
-    <ol>
-        {% for i in dados_site %}
-        <h1>{{ i.nome_empresa }}</h1>
-        <p>{{ i.texto_sobre }}</p>
 
-        <a target="_blank" href="{{ i.whatsapp }}">Clique aqui para falar comigo<br></a>
-        <a target="_blank" href="{{ i.localizacao }}">Clique aqui para me encontrar</a>
-        
-        <h3>Produtos exclusivos!</h3>
 
-        <ol>
-            {% for j in lista_produtos %}
-            {% if j.empresa.id == i.id%}
-            {% if j.nome_produto != "NADA" %}
-            <li>{{ j.nome_produto }}</li>
-            <p>{{ j.descricao }}</p>
-            <p>R${{ j.preco_venda }}</p>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-        </ol>
-        
-        <h3>Conheça nossos clientes!</h3>
-
-        <ol>
-            {% for r in lista_pessoas %}
-            {% if r.empresa.id == i.id%}
-            {% if r.listagem %}
-            <li>{{ r.nome_pessoa }}</li>
-            <p>{{ r.email }}</p>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-        </ol>
-
-        {% endfor %}
-    </ol>
 -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

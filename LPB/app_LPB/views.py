@@ -4,15 +4,13 @@ from .models import *
 # Create your views here.
 
 def home(request):
-    dados = DadosEmpresas.objects.all()
-    produtos = Produto.objects.all()
-    pessoas = Pessoa.objects.all()
+    categorias = Categoria.objects.all()
+    tarefas = Tarefa.objects.all()
     sede = DadosSede.objects.all()
 
     dicionario = {
-        "dados_site": dados,
-        "lista_produtos" : produtos,
-        "lista_pessoas" : pessoas,
+        "lista_categorias": categorias,
+        "lista_tarefas" : tarefas,
         "info_sede": sede[0]
     }
 

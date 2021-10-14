@@ -3,19 +3,22 @@ from .models import *
 
 # Register your models here.
 
-@admin.register(DadosEmpresas)
-class DadosEmpresasAdmin(admin.ModelAdmin):
-    list_display = ('nome_empresa', 'texto_sobre')
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('nome_categoria', 'descricao')
 
 @admin.register(DadosSede)
 class DadosSedeAdmin(admin.ModelAdmin):
     list_display = ('nome_empresa', 'texto_sobre')
 
-@admin.register(Produto)
-class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('nome_produto', 'descricao', 'preco_custo', 'preco_venda')
+@admin.register(Tarefa)
+class TarefaAdmin(admin.ModelAdmin):
+    list_display = ('nome_tarefa', 'descricao', 'duracao', 'hora_criacao', 'concluida')
 
-@admin.register(Pessoa)
-class PessoaAdmin(admin.ModelAdmin):
-    list_display = ('nome_pessoa', 'email', 'propaganda')
+@admin.register(Insignia)
+class InsigniaAdmin(admin.ModelAdmin):
+    list_display = ('nome_insignia', 'lvl_atual')
 
+@admin.register(Medalha)
+class MedalhaAdmin(admin.ModelAdmin):
+    list_display = ('nome_medalha', 'xp_atribuido')
