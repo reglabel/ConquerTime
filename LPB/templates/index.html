@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><!--
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,35 +8,38 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>{{ info_sede.nome_empresa }}</title>-->
+    <title>{{ info_sede.nome_empresa }}</title>
 </head>
 
-<body>
-<!--    <header>
-        <div class="collapse" id="navbarHeader" style="background-color: azure;">
+<body  style="width: 100%;">
+    <header>
+        <div class="collapse" id="navbarHeader" style="background-color: #FFF6F0; width: 100%;">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="font-weight-bolder" style="color: lightskyblue;">Sobre</h4>
-                        <p class="text-body text-dark">{{ info_sede.texto_sobre }}</p>
+                        <div class="media">
+                            <img class="align-self-start mr-3" src="https://virtual.hr-congress.com/wp-content/uploads/2020/11/HUAPII_One-Platform.gif" alt="..." style="width: auto; height: 100px;">
+                            <div class="media-body">
+                              <h4 class="font-weight-bolder" style="color: #383949;">Sobre</h4>
+                              <p class="text-body text-dark">{{ info_sede.texto_sobre }}</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 style="color: lightskyblue;">Contatos</h4>
+                        <h4 style="color: #383949;">Por onde começar?</h4>
                         <ul class="list-unstyled">
-                            <li><a target="_blank" href="{{ info_sede.instagram }}" class="text-dark">Instagram</a></li>
-                            <li><a target="_blank" href="{{ info_sede.localizacao }}" class="text-dark">Localização</a></li>
-                            <li><a target="_blank" href="{{ info_sede.whatsapp }}" class="text-dark">Whatsapp</a></li>
+                            <li><a target="_blank" href="#" style="color: #FF8B94">Acessar/Criar Perfil</a></li>
+                            <li><a target="_blank" href="#" style="color: #FF8B94">Explorar Nosso Feed</a></li>
+                            <li><a target="_blank" href="#" style="color: #FF8B94">Últimas Notícias</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="navbar navbar-light" style="background-color: lightskyblue;">
+        <div class="navbar navbar-light" style="background-color: #FFAAA5; width: 100%;">
             <div class="container d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    
-                    <i class="fa fa-gg" aria-hidden="true"></i>
                     <strong>{{ info_sede.nome_empresa }}</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,47 +50,65 @@
     </header>
 
     <main role="main">
-        <section class="jumbotron text-center" style="background-color: rgb(187, 225, 236)">
-            <div class="container">
-                <h1 class="jumbotron-heading"><i class="fa fa-hand-spock-o" aria-hidden="true"></i> Seja bem-vindo(a)!</h1>
+        <section class="jumbotron text-center" style="background-color: #FFD3B6; width: 100%;">
+            <div class="container" style="width: 100%;">
+                <h1 class="jumbotron-heading"><i class="fa fa-hand-spock-o" aria-hidden="true"></i> Seja bem-vindo(a), convidado(a)!</h1>
                 <p class="lead text-muted">{{ info_sede.chamada }}</p>
-            </div>
+                <img src="https://brandmasteracademy.com/wp-content/uploads/2021/03/lifestyle.png" alt="..." style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
         </section>
-
-        {% for i in dados_site %}
-        
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <section class="jumbotron text-left" style="background-color: #d1f1f1">
-                    <div class="container">
-                        <h5 class="jumbotron-heading text-info"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> {{i.nome_empresa}}</h5>
-                        <p class="text-dark">{{ i.texto_sobre }}</p>
-                    </div>
-                </section>
-
+        <section>
+            <div class="container" style="width: 100%;">
                 <div class="row">
-                    {% for j in lista_produtos %}
-                        {% if j.empresa.id == i.id%}
-                        {% if j.nome_produto != "NADA" %}
-                        <div class="col-md-4">
-                            <div class="card border-primary mb-4 box-shadow">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ j.nome_produto }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ i.nome_empresa }}</h6>
-                                    <p class="card-text">{{ j.descricao }}</p>
-                                    <h3>R${{ j.preco_venda }}</h3>
-                                    <a href="#" class="btn btn-primary">Comprar</a>
-                                </div>
+                    <div class="col">
+                        <div class="card box-shadow" style="margin: 30px; border-color: #A8E6CF;">
+                            <div class="card-body" style="align-self: center;">
+                                <h5 class="card-title">titulo</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">subtitulo</h6>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui eum obcaecati</p>
+                                <h3>blabla</h3>
+                                <a href="#" class="btn btn-primary">botao</a>
                             </div>
                         </div>
-                        {% endif %}
-                        {% endif %}
-                    {% endfor %}
+                    </div>
+                    <div class="col">
+                        <div class="card box-shadow" style="margin: 30px; border-color: #A8E6CF;">
+                            <div class="card-body" style="align-self: center;">
+                                <h5 class="card-title">titulo</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">subtitulo</h6>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui eum obcaecati</p>
+                                <h3>blabla</h3>
+                                <a href="#" class="btn btn-primary">botao</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card box-shadow" style="margin: 30px; border-color: #8f8f8f;">
+                            <div class="card-body" style="align-self: center;">
+                                <h5 class="card-title">titulo</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">subtitulo</h6>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui eum obcaecati</p>
+                                <h3>blabla</h3>
+                                <a href="#" class="btn btn-primary">botao</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card box-shadow" style="margin: 30px; border-color: #A8E6CF;">
+                            <div class="card-body" style="align-self: center;">
+                                <h5 class="card-title">titulo</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">subtitulo</h6>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui eum obcaecati</p>
+                                <h3>blabla</h3>
+                                <a href="#" class="btn btn-primary">botao</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+        </section>
     </main>
 
     <footer class="text-muted mt-5 mb-5">
@@ -96,12 +117,10 @@
                 <a href="#">Voltar para o topo</a>
             </p>
             <p>&copy; {{ info_sede.nome_empresa }}, 2021!</p>
-            <p>Quer saber mais? <a target="_blank" href="{{ info_sede.whatsapp }}">Chama no whats</a> ou venha nos visitar em <a target="_blank" href="{{ info_sede.localizacao }}""> nosso ponto físico</a>.</p>
+            <p>Quer saber mais? <a target="_blank" href="{{ info_sede.email }}">Nos mande um e-mail</a> ou venha nos visitar no nosso <a target="_blank" href="{{ info_sede.instagram }}">Instagram</a>.</p>
         </div>
     </footer>
 
-
--->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  

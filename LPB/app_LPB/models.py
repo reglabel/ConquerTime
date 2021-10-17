@@ -17,6 +17,7 @@ class DadosSede(models.Model):
     whatsapp = models.TextField('Whatsapp', null=True, blank=True)
     localizacao = models.TextField('Localização', null=True, blank=True)
     instagram = models.TextField("Instagram", null=True, blank=True)
+    email = models.TextField(null=True);
 
     def __str__(self) -> str:
         return self.nome_empresa
