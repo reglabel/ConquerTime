@@ -23,4 +23,5 @@ urlpatterns = [
     path('', home, name="landing_page/"),
     path('cronometro/',cronometro, name="cronometro"),
     path('novaTarefa/',novaTarefa, name="novaTarefa"),
+    path('relatorioTarefa/',relatorioTarefa, name="relatorioTarefa"),
 ]

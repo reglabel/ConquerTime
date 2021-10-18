@@ -41,3 +41,15 @@ def novaTarefa(request):
         "info_sede": sede[0]
     }
     return render(request, "novaTarefa.html", dicionario)
+
+def relatorioTarefa(request):
+    categorias = Categoria.objects.all()
+    tarefas = Tarefa.objects.all()
+    sede = DadosSede.objects.all()
+
+    dicionario = {
+        "lista_categorias": categorias,
+        "lista_tarefas" : tarefas,
+        "info_sede": sede[0]
+    }
+    return render(request, "relatorioTarefa.html", dicionario)
