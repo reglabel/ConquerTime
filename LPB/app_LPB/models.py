@@ -1,6 +1,5 @@
 from django.db import models
-from django import forms
-
+from multiselectfield import MultiSelectField
 # Create your models here.
 
 class Categoria(models.Model):
@@ -22,27 +21,28 @@ class DadosSede(models.Model):
     def __str__(self) -> str:
         return self.nome_empresa
 
-class Formulario(forms.Form):
-    DIAS_CHOICES =(
-        ("SE", "Segunda"),
-        ("TE", "Terça"),
-        ("QA", "Quarta"),
-        ("QI", "Quinta"),
-        ("SX", "Sexta"),
-        ("SA", "Sabado"),
-        ("DM", "Domingo"),
-    )
+DIAS_CHOICES =(
+    ("SE", "Segunda"),
+    ("TE", "Terça"),
+    ("QA", "Quarta"),
+    ("QI", "Quinta"),
+    ("SX", "Sexta"),
+    ("SA", "Sabado"),
+    ("DM", "Domingo"),
+)
 
-    dias = forms.MultipleChoiceField(choices=DIAS_CHOICES)
+class Usuario(models.Model):
+    nome = models.CharField(max_length=50)
 
 class Tarefa(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     nome_tarefa = models.CharField('Nome Tarefa', max_length=250)
     descricao = models.TextField('Descrição')
     duracao = models.TimeField()
     hora_notificacao = models.TimeField()
     hora_criacao = models.DateTimeField()
-    #frequencia_semana = models.OneToOneField(Formulario, on_delete=models.CASCADE) nao funciona assim
+    frequencia_semana = MultiSelectField(choices=DIAS_CHOICES, null=True)
     frequencia_dias = models.IntegerField(default=1)
     concluida = models.BooleanField(default=False)
 
@@ -55,3 +55,4 @@ class Insignia(models.Model):
 class Medalha(models.Model):
     nome_medalha = models.CharField(max_length=100)
     xp_atribuido = models.IntegerField(default=100)
+
