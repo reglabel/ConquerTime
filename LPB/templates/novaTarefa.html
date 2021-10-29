@@ -29,14 +29,23 @@
                     <div class="container" style="margin: 10px;">
                         <div class="row">
                             <div class="col-lg-7 col-sm-12">
-                                <div class="container" style="width:100%">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-default" style="width: 100%; background-color: #A8E6CF; color: #FFFFFF; border-color: #FFFFFF;">Nome da Tarefa</span>
-                                    </div>    
-                                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" step="width: 100%;"  style="margin-top: 5px; margin-bottom: 10px;">
-                                    <select class="form-control" step="width: 100%;">
+                                <div class="container" style="width:100%">  
+                                    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Nome da Tarefa" step="width: 100%;"  style="margin-top: 5px; margin-bottom: 5px;">
+                                    <select class="form-control" step="width: 100%;" style="margin-bottom: 5px;">
                                         <option>Categoria</option>
                                     </select>
+                                    <select class="form-control" step="width: 80%;">
+                                        <option>Insígnia</option>
+                                    </select>
+                                    <div class="container" style="width: 100%; margin-top: 4%;">
+                                        <div>
+                                            <label for="appt-time">Determine uma Duração</label>
+                                            <input type="number"  placeholder="hh" id="quantity" name="quantity" min="0" max="23">
+                                            <input type="number"  placeholder="mm" id="quantity" name="quantity" min="0" max="59">
+                                            <input type="number"  placeholder="ss" id="quantity" name="quantity" min="0" max="59">
+                                            <span class="validity"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -46,14 +55,27 @@
                                        <div class="container" style="width: 100%;">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <div class="input-group-text" id="btnGroupAddon">Vezes ao dia</div>
+                                                    <div class="input-group-text">Vezes ao dia</div>
                                                 </div>
                                                 <input type="text" class="form-control" placeholder="Digite o número aqui" aria-label="Input group example" aria-describedby="btnGroupAddon">
                                             </div>
                                        </div> 
+                                    </div>
 
-                                        <div class="container" style="width: 100%; margin-top: 5px;">
-                                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                    <div class="container" style="width: 100%; margin-top: 5px;">
+                                        <div class="form-group">
+                                            <select multiple class="form-control">
+                                                <option>DOMINGO</option>
+                                                <option>SEGUNDA</option>
+                                                <option>TERÇA</option>
+                                                <option>QUARTA</option>
+                                                <option>QUINTA</option>
+                                                <option>SEXTA</option>
+                                                <option>SÁBADO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                            <!--<div class="btn-group mr-2" role="group" aria-label="First group">
                                                 <button type="button" class="btn btn-secondary" style="background-color: #FF8B94; border-color: #FFFFFF;">SEG</button>
                                                 <button type="button" class="btn btn-secondary" style="background-color: #FFAAA5; border-color: #FFFFFF;">TER</button>
                                                 <button type="button" class="btn btn-secondary" style="background-color: #FFAAA5; border-color: #FFFFFF;">QUA</button>
@@ -61,27 +83,25 @@
                                                 <button type="button" class="btn btn-secondary" style="background-color: #FF8B94; border-color: #FFFFFF;">SEX</button>
                                                 <button type="button" class="btn btn-secondary" style="background-color: #FF8B94; border-color: #FFFFFF;">SAB</button>
                                                 <button type="button" class="btn btn-secondary" style="background-color: #FFAAA5; border-color: #FFFFFF;">DOM</button>
-                                            </div>
+                                            </div>-->
                                         </div>
-                                    </div>
 
                                     <div class="container" style="width: 100%;">
                                         <div>
-                                            <label for="appt-time">Escolha um horario</label>
-                                            <input id="appt-time" type="time" name="appt-time"
-                                                min="00:00" max="23:59" required
-                                                pattern="[0-9]{2}:[0-9]{2}">
-                                            <span class="validity"></span>
+                                            <label for="diaehora">Escolha data e horário</label>
+                                            <form action="/action_page.php" id="diaehora">
+                                                <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>   
                         </div>
 
-                        <div class="row" style="margin-top: 2%;">
+                        <div class="row" style="margin-top: 1%;">
                             <div class="col">
                                 <h6>Descrição</h6>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="width: 80%; height: 300px;">
+                                <textarea class="form-control" rows="4" style="width: 80%; height: 100px;"></textarea>
                             </div>
                         </div>
 

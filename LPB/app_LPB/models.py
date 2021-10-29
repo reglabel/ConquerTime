@@ -43,7 +43,7 @@ class Tarefa(models.Model):
     hora_notificacao = models.TimeField()
     hora_criacao = models.DateTimeField()
     frequencia_semana = MultiSelectField(choices=DIAS_CHOICES, null=True)
-    frequencia_dias = models.IntegerField(default=1)
+    periodicidade = models.IntegerField(default=1)
     concluida = models.BooleanField(default=False)
 
 class Insignia(models.Model):
@@ -53,6 +53,7 @@ class Insignia(models.Model):
     lvl_atual = models.IntegerField(default=0)
 
 class Medalha(models.Model):
+    insignia = models.ForeignKey(Insignia, on_delete=models.CASCADE, null=True)
     nome_medalha = models.CharField(max_length=100)
     xp_atribuido = models.IntegerField(default=100)
 
