@@ -24,4 +24,5 @@ urlpatterns = [
     path('cronometro/',cronometro, name="cronometro"),
     path('novaTarefa/',novaTarefa, name="novaTarefa"),
     path('relatorioTarefa/',relatorioTarefa, name="relatorioTarefa"),
+    path('criarTarefa/', tarefa_create, name='tarefa_create'),
 ]

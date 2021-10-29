@@ -13,7 +13,8 @@ class DadosSedeAdmin(admin.ModelAdmin):
 
 @admin.register(Tarefa)
 class TarefaAdmin(admin.ModelAdmin):
-    list_display = ('nome_tarefa', 'descricao', 'duracao', 'hora_criacao', 'concluida')
+    #list_display = ('nome_tarefa', 'descricao', 'duracao', 'concluida')
+    list_display = ('nome_tarefa', 'descricao', 'concluida')
 
 @admin.register(Insignia)
 class InsigniaAdmin(admin.ModelAdmin):
@@ -22,3 +23,7 @@ class InsigniaAdmin(admin.ModelAdmin):
 @admin.register(Medalha)
 class MedalhaAdmin(admin.ModelAdmin):
     list_display = ('nome_medalha', 'xp_atribuido')
+
+@admin.register(Usuario)
+class UsuarioAdmin(admin.ModelAdmin):
+    list_display = ('nome', )
