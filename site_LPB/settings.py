@@ -11,8 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from site_LPB.st_secrets import *
 import os
+from dj_database_url import parse as dburl
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = getSecretKey()
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False)
+
 
 ALLOWED_HOSTS = []
 
@@ -113,7 +115,7 @@ TIME_ZONE = 'Brazil/East'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -127,3 +129,16 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+ "static"
+]
+
+MEDIA_ROOT = 'media/'
+
+STATIC_ROOT = '/static/'
+
+DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')
+TIME_INPUT_FORMATS = ('%I:%M %p','%H:%M')

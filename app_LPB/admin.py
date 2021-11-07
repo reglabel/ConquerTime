@@ -14,7 +14,7 @@ class DadosSedeAdmin(admin.ModelAdmin):
 @admin.register(Tarefa)
 class TarefaAdmin(admin.ModelAdmin):
     #list_display = ('nome_tarefa', 'descricao', 'duracao', 'concluida')
-    list_display = ('nome_tarefa', 'descricao', 'concluida')
+    list_display = ('nome_tarefa', 'descricao')
 
 @admin.register(Insignia)
 class InsigniaAdmin(admin.ModelAdmin):
