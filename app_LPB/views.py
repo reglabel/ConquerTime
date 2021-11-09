@@ -42,6 +42,32 @@ def excluirTarefa(request, id):
     else:
         return redirect('home')
 
+def editarTarefa(request, id):
+    categorias = Categoria.objects.all()
+    tarefas = Tarefa.objects.all()
+    sede = DadosSede.objects.all()
+    
+    tarefa = Tarefa.objects.get(id=id)
+    if request.method == 'POST':
+        form = TarefaForm(request.POST, instance = tarefa)
+
+        if form.is_valid():
+            try:
+                tarefa = form.save()
+                tarefa.save()
+                return redirect('cronometro', id=tarefa.id)
+            except:
+                print(request, "Erro ao alterar a tarefa!")
+    else:
+        form = TarefaForm(instance=tarefa)
+    dados = {
+        'form': form,
+        "lista_categorias": categorias,
+        "lista_tarefas" : tarefas,
+        "info_sede": sede[0]
+    }
+    return render(request, 'cadastrar_tarefa.html', dados)
+
 def home(request):
     categorias = Categoria.objects.all()
     tarefas = Tarefa.objects.all()

@@ -27,7 +27,7 @@ urlpatterns = [
     
     path('cadastroTarefa/', cadastroTarefa, name="cadastroTarefa"),
     path('excluirTarefa/<int:id>/', excluirTarefa, name="excluirTarefa"),
-    #path('editarTarefa/<int:id>/', editarTarefa, name="editarTarefa"),
+    path('editarTarefa/<int:id>/', editarTarefa, name="editarTarefa"),
     #path('listaTarefa/<int:id>/', listaTarefa, name="listaTarefa"),
     #path('cadastroCategoria/', cadastroCategoria, name="cadastroCategoria"),
     #path('excluirCategoria/<int:id>/', excluirCategoria, name="excluirCategoria"),
